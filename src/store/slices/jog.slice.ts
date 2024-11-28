@@ -1,30 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface jogState {
-  distance: number;
-  time: number;
-  date: Date;
+  dateTo: string;
+  dateFrom: string;
 }
 
 const initialState: jogState = {
-  distance: 0,
-  time: 0,
-  date: new Date()
+  dateTo: '',
+  dateFrom: ''
 };
 
 const jogSlice = createSlice({
-  name: ' jog',
+  name: 'jog',
   initialState,
   reducers: {
-    setJog: (_state, action: PayloadAction<jogState>) => action.payload,
-    resetJog: () => initialState,
-    addJog: (state, action: PayloadAction<jogState>) => {
-      state.distance += action.payload.distance;
-      state.time += action.payload.time;
-      state.date = action.payload.date;
+    setDateTo: (state, { payload: dateTo }: PayloadAction<string>) => {
+      state.dateTo = dateTo;
     },
-    updateJog: (_state, action: PayloadAction<jogState>) => action.payload,
-    reset: () => initialState
+    setDateFrom: (state, { payload: dateFrom }: PayloadAction<string>) => {
+      state.dateFrom = dateFrom;
+    },
+    resetDates: () => initialState
   }
 });
 

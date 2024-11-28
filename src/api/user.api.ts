@@ -1,10 +1,9 @@
-
 import { IUser, IUserLoginInfo, IUserRegisterInfo } from '@/common/types/user.interface';
 import { baseApi } from './base.api';
 
 export const userApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    loginUser: builder.mutation<string, IUserLoginInfo>({
+    loginUser: builder.mutation<IUser, IUserLoginInfo>({
       query: (userInfo: IUserLoginInfo) => ({
         body: userInfo,
         url: '/auth/signin',
@@ -25,12 +24,8 @@ export const userApi = baseApi.injectEndpoints({
         method: 'GET'
       }),
       providesTags: ['User']
-    }),
+    })
   })
 });
 
-export const {
-  useLoginUserMutation,
-  useSignupUserMutation,
-  useGetUserQuery,
-} = userApi;
+export const { useLoginUserMutation, useSignupUserMutation, useGetUserQuery } = userApi;

@@ -1,9 +1,9 @@
 import { baseApi } from './base.api';
-import { IJog } from '@/common/types/jog.interface';
+import { ICreateJog, IJog, IUpdateJog } from '@/common/types/jog.interface';
 
 export const collectionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getJogs: builder.query<IJog[], void>({
+    getJogs: builder.query<{ jogs: IJog[] | undefined }, void>({
       query: () => ({
         url: `/jogs`,
         method: 'GET'
@@ -17,16 +17,16 @@ export const collectionApi = baseApi.injectEndpoints({
       }),
       providesTags: () => ['Jogs']
     }),
-    addJog: builder.mutation<IJog, IJog>({
-      query: (jog: IJog) => ({
+    addJog: builder.mutation<IJog, ICreateJog>({
+      query: (jog: ICreateJog) => ({
         body: jog,
         url: `/jogs`,
         method: 'POST'
       }),
       invalidatesTags: () => ['Jogs']
     }),
-    updateJog: builder.mutation<IJog, IJog>({
-      query: (jog: IJog) => ({
+    updateJog: builder.mutation<IJog, IUpdateJog>({
+      query: (jog: IUpdateJog) => ({
         body: jog,
         url: `/jogs/${jog.id}`,
         method: 'PATCH'
@@ -43,4 +43,5 @@ export const collectionApi = baseApi.injectEndpoints({
   })
 });
 
-export const { useGetJogsQuery } = collectionApi;
+export const { useGetJogsQuery, useGetJogQuery, useAddJogMutation, useUpdateJogMutation, useDeleteJogMutation } =
+  collectionApi;
