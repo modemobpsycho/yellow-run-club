@@ -1,0 +1,75 @@
+@import '@/styles/variables.scss';
+
+.jog-element {
+  display: flex;
+  align-items: center;
+  height: 120px;
+  width: 350px;
+
+  @media (max-width: $media-sm) {
+    height: 150px;
+    width: 100%;
+    padding: 0px 30px;
+    border-bottom: 1px solid $gray-color-100;
+  }
+
+  @media (max-width: $media-xs) {
+    padding: 0px 10px;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 46px;
+
+    @media (max-width: $media-sm) {
+      margin-left: 20px;
+    }
+  }
+
+  &-date {
+    color: $gray-color-100;
+    font-size: 14px;
+    margin-bottom: 9px;
+
+    @media (max-width: $media-sm) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &-info-values {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (max-width: $media-sm ) {
+      gap: 5px;
+    }
+  }
+
+  &-value {
+    font-size: 16px;
+  }
+
+  &-buttons {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: $media-sm) {
+      flex-direction: row;
+      margin-bottom: auto;
+      margin-top: 10px;
+      gap: 5px;
+    }
+  }
+
+  &-edit-button,
+  &-delete-button {
+    &:hover {
+      color: $baby-purple-color;
+      transition: color 0.2s;
+    }
+  }
+}

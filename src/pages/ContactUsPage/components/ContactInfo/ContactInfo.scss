@@ -1,0 +1,30 @@
+@import '@/styles/variables.scss';
+
+.contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .contact-info-title {
+    color: $apple-green-color;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+    @media screen and (max-width: $media-sm) {
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+  }
+
+  .contact-details {
+    p {
+      font-size: 16px;
+      margin-bottom: 10px;
+
+      @media screen and (max-width: $media-sm) {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

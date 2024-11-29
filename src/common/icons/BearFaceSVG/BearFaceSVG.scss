@@ -1,0 +1,10 @@
+@import '@/styles/variables.scss';
+
+
+.bear {
+    fill: $white-color;
+
+    @media (max-width: $media-sm) {
+      fill: $baby-purple-color;
+    }
+}

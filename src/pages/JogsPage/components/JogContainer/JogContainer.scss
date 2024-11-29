@@ -1,0 +1,12 @@
+@import '@/styles/variables.scss';
+
+.jog-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  @media (max-width: $media-sm) {
+    width: 100%;
+    gap: 0px;
+  }
+}

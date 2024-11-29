@@ -1,0 +1,132 @@
+@import '@/styles/variables.scss';
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: calc(($height-app - 600px) / 2) 0;
+}
+
+.center-window-wrapper {
+  width: 500px;
+  height: 500px;
+  gap: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44px;
+
+  background-color: $baby-purple-color;
+
+  @media (max-width: $media-sm) {
+    background-color: $white-color;
+    gap: 12px;
+  }
+}
+
+.entry-button {
+  height: 60px;
+  padding: 20px 30px;
+  border-radius: 36px;
+  border: 3px solid $white-color;
+  background-color: transparent;
+  margin-top: 10px;
+
+  color: $white-color;
+  font-size: 18px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $white-color;
+    color: $baby-purple-color;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: $media-sm) {
+    padding: 10px 20px;
+    color: $baby-purple-color;
+    border-color: $baby-purple-color;
+
+    &:hover {
+      background-color: $baby-purple-color;
+      color: $white-color;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entry-title {
+  color: $white-color;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 42px;
+
+  @media (max-width: $media-sm) {
+    font-size: 36px;
+    color: $baby-purple-color;
+  }
+}
+
+.entry-redirect {
+  color: $white-color;
+  font-size: 18px;
+  line-height: 24px;
+
+  @media (max-width: $media-sm) {
+    color: $gray-color-200;
+  }
+
+  a {
+    color: $white-color;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+
+    @media (max-width: $media-sm) {
+      color: $baby-purple-color;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.input {
+  &__label {
+    color: $white-color;
+
+    @media (max-width: $media-sm) {
+      color: $baby-purple-color;
+      font-weight: bold;
+    }
+  }
+
+  &__input {
+    border-radius: 36px;
+    border: 3px solid $baby-purple-color;
+    color: $baby-purple-color;
+    background-color: $white-color;
+    font-size: 18px;
+    line-height: 24px;
+
+    @media (max-width: $media-sm) {
+      color: $black-color;
+      border: 1px solid $gray-color-100;
+    }
+
+    &::placeholder {
+      color: $gray-color-100;
+    }
+  }
+}

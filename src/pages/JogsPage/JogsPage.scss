@@ -1,0 +1,11 @@
+@import '@/styles/variables.scss';
+
+.jogs-page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 10px 0;
+
+  @media screen and (max-width: $media-sm) {
+    padding: 20px 0 20px 0;
+  }
+}

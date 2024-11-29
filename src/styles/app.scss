@@ -43,13 +43,8 @@ button {
   flex-direction: column;
   gap: 10px;
 
-  label {
-    color: $white-color;
-  }
-
   input {
     padding: 10px;
-    border: 3px solid $white-color;
     border-radius: 7px;
   }
 }
@@ -58,5 +53,6 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: #eaeaea;
+  transform: translate(-50%, -50%);
+  color: $apple-green-color !important; // !important for override MUI
 }

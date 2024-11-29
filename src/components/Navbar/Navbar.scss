@@ -1,0 +1,159 @@
+@import '@/styles/variables.scss';
+
+.navbar {
+  background-color: $apple-green-color !important; // !important for override MUI
+
+  .navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 35px;
+
+    @media screen and (max-width: $media-sm) {
+      padding: 20px 25px;
+    }
+
+    @media screen and (max-width: $media-md) {
+      .navbar-buttons > *:not(.navbar-burger) > *:not(.filter-button) {
+        display: none;
+      }
+    }
+
+    .navbar-buttons {
+      align-items: center;
+      gap: 29px;
+
+      @media screen and (max-width: $media-md) {
+        gap: 30px;
+      }
+
+      @media screen and (max-width: $media-sm) {
+        gap: 5px;
+      }
+
+      a,
+      &-auth a {
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &.active {
+          border-bottom: 2px solid $white-color;
+        }
+
+        & &:hover {
+          border-bottom: 2px solid $white-color;
+        }
+      }
+    }
+  }
+}
+
+.filter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+
+  &.hide {
+    display: none;
+  }
+}
+
+.filter-panel {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  width: 100%;
+  height: 60px;
+  background-color: $gray-color-50;
+  z-index: 1;
+  gap: 45px;
+
+  @media screen and (max-width: $media-sm) {
+    gap: 10px;
+  }
+
+  label {
+    color: $gray-color-200;
+    font-size: 13px;
+  }
+
+  input {
+    margin: 0 10px 0 15px;
+    height: 30px;
+    width: 120px;
+    border: 1px solid $gray-color-200;
+    border-radius: 11px;
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+
+    @media screen and (max-width: $media-sm) {
+      margin: 0 10px;
+      padding: 0;
+      width: 90px;
+    }
+
+    @media screen and (max-width: $media-xs) {
+      width: 70px;
+    }
+
+    &::placeholder {
+      color: $gray-color-100;
+    }
+  }
+
+  &.show {
+    display: flex;
+  }
+}
+
+.navbar-burger {
+  height: 40px;
+  @media screen and (min-width: $media-md) {
+    display: none;
+  }
+
+  &-menu {
+    display: none;
+
+    a.active {
+      color: $apple-green-color;
+    }
+
+    &-close {
+      position: absolute;
+      top: 45px;
+      right: 40px;
+      cursor: pointer;
+
+      @media screen and (max-width: $media-sm) {
+        top: 30px;
+        right: 30px;
+      }
+    }
+
+    @media screen and (max-width: $media-md) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      position: fixed;
+      height: 100vh;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      transition: 0.3s ease-out;
+      transform: translateX(0);
+      padding: 20px 20px;
+      width: 100%;
+      font-size: 25px;
+      font-weight: bold;
+      padding-top: 30vh;
+      color: $black-color;
+      background-color: $white-color;
+    }
+  }
+}
