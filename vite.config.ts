@@ -1,4 +1,4 @@
-import { AliasOptions, defineConfig } from 'vite';
+import { AliasOptions, defineConfig as baseConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import dotenv from 'dotenv';
@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, 'src');
 
 dotenv.config();
 
-export default defineConfig({
+export default baseConfig({
   plugins: [react()],
   resolve: {
     alias: {

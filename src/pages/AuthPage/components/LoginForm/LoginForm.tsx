@@ -1,11 +1,13 @@
 import { useLoginUserMutation } from '@/api/user.api';
 import Input from '@/common/commonComponents/Input/Input';
 import { useActions } from '@/common/hooks/useActions';
+import { useUserState } from '@/common/hooks/useStoreState';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export function LoginForm() {
   const navigate = useNavigate();
+  const { token } = useUserState();
   const [loginUser, { isSuccess, data, isLoading }] = useLoginUserMutation();
   const { setUser } = useActions();
   const [formData, setFormData] = useState({
@@ -25,6 +27,12 @@ export function LoginForm() {
       console.error('Error:', error);
     }
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate('/jogs');
+    }
+  }, [token]);
 
   useEffect(() => {
     if (isSuccess && data) {

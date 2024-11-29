@@ -32,6 +32,15 @@ export function DesktopMenu({
         <Grid2 className="navbar-buttons" container>
           <Grid2>
             <a
+              color="inherit"
+              onClick={() => setOpenFilter(!openFilter)}
+              className={'filter-button ' + (isActive('/jogs') ? '' : 'hide')}
+            >
+              {openFilter ? <ActiveFilterSVG /> : <FilterSVG />}
+            </a>
+          </Grid2>
+          <Grid2>
+            <a
               className={isActive('/jogs')}
               color="inherit"
               onClick={() => {
@@ -77,16 +86,7 @@ export function DesktopMenu({
               LOGOUT
             </a>
           </Grid2>
-          <Grid2>
-            <a
-              color="inherit"
-              onClick={() => setOpenFilter(!openFilter)}
-              className={'filter-button ' + (isActive('/jogs') ? '' : 'hide')}
-            >
-              {openFilter ? <ActiveFilterSVG /> : <FilterSVG />}
-            </a>
-          </Grid2>
-          <a className="navbar-burger" onClick={() => setIsShowBurger(!isShowBurger)}>
+          <a className="navbar-burger" data-testid="navbar-burger" onClick={() => setIsShowBurger(!isShowBurger)}>
             <BurgerSVG />
           </a>
         </Grid2>
